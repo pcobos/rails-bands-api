@@ -3,8 +3,7 @@ class BandsController < ApplicationController
 
   def index
     @bands = Band.all
-
-    render json: @bands, only: [":name"]
+    render json: @bands, only: [:name]
   end
 
   def show
@@ -13,7 +12,6 @@ class BandsController < ApplicationController
 
   def create
     @band = Band.new(band_params)
-
     # Conditional for saving the band or showing an error
     if @band.save
       render json: @band, status: :created, location: @band
