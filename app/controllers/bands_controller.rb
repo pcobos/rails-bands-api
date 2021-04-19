@@ -4,7 +4,7 @@ class BandsController < ApplicationController
   def index
     @bands = Band.all
 
-    render json: @bands
+    render json: @bands, only: [":name"]
   end
 
   def show
